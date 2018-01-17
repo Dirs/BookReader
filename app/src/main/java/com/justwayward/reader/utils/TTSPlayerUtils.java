@@ -20,6 +20,8 @@ import com.sinovoice.hcicloudsdk.android.tts.player.TTSPlayer;
 import com.sinovoice.hcicloudsdk.common.tts.TtsConfig;
 import com.sinovoice.hcicloudsdk.common.tts.TtsInitParam;
 
+import java.util.List;
+
 /**
  * @author yuyh.
  * @date 2016/8/16.
@@ -39,5 +41,13 @@ public class TTSPlayerUtils {
         ttsConfig.addParam(TtsConfig.SessionConfig.PARAM_KEY_CAP_KEY, "tts.cloud.xiaokun"); // 发音人
         ttsConfig.addParam(TtsConfig.BasicConfig.PARAM_KEY_AUDIO_FORMAT, "pcm16k16bit"); // 音频格式
         return ttsConfig;
+    }
+
+    public static void initBaiduTTS(){
+
+    }
+
+    public static void setQueue(List<String>texts){
+
     }
 }

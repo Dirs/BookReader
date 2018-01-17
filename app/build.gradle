@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.justwayward.reader"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
@@ -71,13 +71,11 @@ dependencies {
     compile 'io.reactivex:rxjava:1.1.5'
     // Bus
     compile 'org.greenrobot:eventbus:3.0.0'
-
     compile 'com.commit451:PhotoView:1.2.4'
     compile 'org.ccil.cowan.tagsoup:tagsoup:1.2.1'
-
     // leakcanary
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-
+    compile project(':BaiduTTS')
 }

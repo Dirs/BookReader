@@ -1,0 +1,48 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.2'
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 25
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:support-annotations:25.3.1'
+}
+
+apply plugin: 'maven-publish'
+apply plugin: 'maven'
+def MAVEN_LOCAL_PATH ='http://118.178.228.199:8081/nexus/content/repositories/xw/'
+def ARTIFACT_ID = 'ext-baidu-tts'
+def VERSION_NAME = '1.0.0'
+def GROUP_ID = 'com.xw.code'
+def USER_NAME = 'chq'
+def PWD = "chq123456"
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            name = 'mavenCentralReleaseDeployer'
+            repository(url:MAVEN_LOCAL_PATH ){
+                authentication(userName: USER_NAME, password: PWD)
+            }
+            pom.project {
+                groupId GROUP_ID
+                artifactId ARTIFACT_ID
+                version VERSION_NAME
+                packaging 'aar'
+            }
+        }
+    }
+}
